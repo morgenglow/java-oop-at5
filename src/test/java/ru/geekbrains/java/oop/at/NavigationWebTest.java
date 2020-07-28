@@ -1,5 +1,6 @@
 package ru.geekbrains.java.oop.at;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -42,9 +43,15 @@ public class NavigationWebTest extends BaseWebTest {
         wait15second.until(ExpectedConditions.visibilityOf(
                 contentPage.getFooter()));
     }
+    @Epic(value = "Работа с пользователями")
+    @Feature("Отображение блоков")
+    @Story("Неавторизованный пользователь")
 
-    @DisplayName("Блог")
     @Test
+    @Description("Проверяем наличие заголовка Блог")
+    @Issue("BUG-100501")
+    @TmsLink("TEST-11")
+    @DisplayName("Блог")
     public void posts() {
         String namePage="Блог";
         ContentPage contentPage = new ContentPage(driver);
@@ -56,7 +63,10 @@ public class NavigationWebTest extends BaseWebTest {
         contentPage.checkNamePage(namePage);
     }
 
-    @DisplayName("Нажатие на элемент навигации")
+
+    @Description("Проверяем наличие заголовков")
+    @TmsLink("TEST-12")
+    @DisplayName("Заголовки страниц")
     @ParameterizedTest
     @MethodSource("dataProvider")
     public void courses(String namePage) {

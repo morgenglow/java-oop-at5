@@ -1,5 +1,8 @@
 package ru.geekbrains.java.oop.at;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +22,10 @@ public class SearchWebTest extends BaseWebTest {
     public void beforeEach() {
         driver.get("https://geekbrains.ru/events");
     }
+
+    @Epic(value = "Работа с навигацией")
+    @Feature("Поиск")
+    @Story("Неавторизованный пользователь поиск")
 
     @DisplayName("Проверка поиска по всем блокам")
     @Test

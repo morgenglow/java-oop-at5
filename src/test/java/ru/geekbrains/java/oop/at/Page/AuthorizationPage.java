@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.geekbrains.java.oop.at.block.Navigation;
 
 public class AuthorizationPage {
 
@@ -17,9 +18,11 @@ public class AuthorizationPage {
 
     private WebDriver driver;
 
+    private ContentPage contentPage;
+
     public AuthorizationPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
+        contentPage = new ContentPage(driver);
     }
 
     public ContentPage authorization(String login, String password) {
@@ -40,4 +43,6 @@ public class AuthorizationPage {
     public WebElement getButtonSingIn() {
         return buttonSingIn;
     }
+
+    public ContentPage getContentPage() {return contentPage; }
 }
